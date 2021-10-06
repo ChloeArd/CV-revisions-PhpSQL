@@ -4,13 +4,13 @@ namespace Revision\Entity;
 class Experience {
 
     private int $id;
-    private int $stardDate;
+    private int $startDate;
     private int $endDate;
     private string $experience;
 
-    public function __construct(int $id = null, int $stardDate = null, int $endDate = null, string $experience = null) {
+    public function __construct(int $id = null, int $startDate = null, int $endDate = null, string $experience = null) {
         $this->id = $id;
-        $this->stardDate = $stardDate;
+        $this->startDate = $startDate;
         $this->endDate = $endDate;
         $this->experience = $experience;
     }
@@ -32,15 +32,15 @@ class Experience {
     /**
      * @return int|null
      */
-    public function getStardDate(): ?int {
-        return $this->stardDate;
+    public function getStartDate(): ?int {
+        return $this->startDate;
     }
 
     /**
-     * @param int|null $stardDate
+     * @param int|null $startDate
      */
-    public function setStardDate(?int $stardDate): void {
-        $this->stardDate = $stardDate;
+    public function setStartDate(?int $startDate): void {
+        $this->startDate = $startDate;
     }
 
     /**

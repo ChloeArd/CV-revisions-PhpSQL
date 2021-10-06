@@ -11,17 +11,17 @@ class Section1Manager {
      * @return array
      */
     public function getSection(): array {
-        $users = [];
+        $section = [];
         $request = DB::getInstance()->prepare("SELECT * FROM section1");
         $request->execute();
-        $users_response = $request->fetchAll();
+        $section_response = $request->fetchAll();
 
-        if($users_response) {
-            foreach($users_response as $data) {
-                $users[] = new Section1($data['id'], $data['image'], $data['name'], $data['text'], $data['title1'],
+        if($section_response) {
+            foreach($section_response as $data) {
+                $section[] = new Section1($data['id'], $data['image'], $data['name'], $data['text'], $data['title1'],
                                         $data['title2'], $data['title3']);
             }
         }
-        return $users;
+        return $section;
     }
 }

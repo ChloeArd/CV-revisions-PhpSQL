@@ -11,16 +11,16 @@ class ExperienceManager {
      * @return array
      */
     public function getExperience(): array {
-        $users = [];
+        $experience = [];
         $request = DB::getInstance()->prepare("SELECT * FROM experience");
         $request->execute();
-        $users_response = $request->fetchAll();
+        $experience_response = $request->fetchAll();
 
-        if($users_response) {
-            foreach($users_response as $data) {
-                $users[] = new Experience($data['id'], $data['startData'], $data['endDate'], $data['experience']);
+        if($experience_response) {
+            foreach($experience_response as $data) {
+                $experience[] = new Experience($data['id'], $data['startDate'], $data['endDate'], $data['experience']);
             }
         }
-        return $users;
+        return $experience;
     }
 }

@@ -26,11 +26,11 @@ switch ($requestType) {
 function getPersonalData(PersonaldataManager $manager): string {
     $response = [];
     $data = $manager->getPersonaldata();
-    foreach ($data as $user) {
+    foreach ($data as $personal) {
         $response[] = [
-            'id' => $user->getId(),
-            'title' => $user->getTitle(),
-            'information' => $user->getInformation()
+            'id' => $personal->getId(),
+            'title' => $personal->getTitle(),
+            'information' => $personal->getInformation()
         ];
     }
     return json_encode($response);

@@ -11,16 +11,16 @@ class PersonaldataManager {
      * @return array
      */
     public function getPersonaldata(): array {
-        $users = [];
+        $personal = [];
         $request = DB::getInstance()->prepare("SELECT * FROM personaldata");
         $request->execute();
-        $users_response = $request->fetchAll();
+        $personal_response = $request->fetchAll();
 
-        if($users_response) {
-            foreach($users_response as $data) {
-                $users[] = new Personnaldata($data['id'], $data['title'], $data['information']);
+        if($personal_response) {
+            foreach($personal_response as $data) {
+                $personal[] = new Personnaldata($data['id'], $data['title'], $data['information']);
             }
         }
-        return $users;
+        return $personal;
     }
 }

@@ -12,16 +12,16 @@ class FormationManager {
      * @return array
      */
     public function getFormation(): array {
-        $users = [];
+        $formation = [];
         $request = DB::getInstance()->prepare("SELECT * FROM formation");
         $request->execute();
-        $users_response = $request->fetchAll();
+        $formation_response = $request->fetchAll();
 
-        if($users_response) {
-            foreach($users_response as $data) {
-                $users[] = new Formation($data['id'], $data['endDate'], $data['formation']);
+        if($formation_response) {
+            foreach($formation_response as $data) {
+                $formation[] = new Formation($data['id'], $data['endDate'], $data['formation']);
             }
         }
-        return $users;
+        return $formation;
     }
 }

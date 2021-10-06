@@ -37,14 +37,14 @@
         <h3 id="languages"></h3>
         <table>
             <tr>
-                <th>Français</th>
-                <th>Anglais</th>
-                <th>Allemand</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
             <tr>
-                <td>100%</td>
-                <td>50%</td>
-                <td>40%</td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </table>
         <h3 id="skill"></h3>
@@ -53,32 +53,25 @@
     </section>
     <button id="details2"> > </button>
     <section id="section2" class="right">
-        <h1>Chloé ARDOISE</h1>
+        <h1 id="name2"></h1>
         <nav>
-            <h2>Profil</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum.</p>
+            <h2 id="title4"></h2>
+            <p id="profile"></p>
         </nav>
         <nav>
-            <h2>Formation</h2>
+            <h2 id="title5"></h2>
             <ul>
-                <li>Octobre 2020 - Juin 2021 <br>
-                    Formation de développeur web et web mobile BAC +2
+                <li class="formation">
                 </li>
-                <li>2020 <br>
-                    DIPLÔME: BAC SCIENTIFIQUE spé SVT – mention assez bien
+                <li class="formation">
                 </li>
-                <li>2017 <br>
-                    DIPLÔME: BREVET – mention bien
+                <li class="formation">
                 </li>
             </ul>
         </nav>
         <nav>
-            <h2>Expériences</h2>
-            <aside>Aucune expériences pour l'instant.</aside>
+            <h2 id="title6"></h2>
+            <aside id="aside"></aside>
         </nav>
     </section>
 </main>

@@ -7,7 +7,7 @@ class Language {
     private string $language;
     private string $pourcentage;
 
-    public function __construct(int $id = null, int $language = null, string $pourcentage = null) {
+    public function __construct(int $id = null, string $language = null, string $pourcentage = null) {
         $this->id = $id;
         $this->language = $language;
         $this->pourcentage = $pourcentage;
@@ -28,14 +28,14 @@ class Language {
     }
 
     /**
-     * @return int|string|null
+     * @return string|null
      */
     public function getLanguage() {
         return $this->language;
     }
 
     /**
-     * @param int|string|null $language
+     * @param string|null $language
      */
     public function setLanguage($language): void {
         $this->language = $language;

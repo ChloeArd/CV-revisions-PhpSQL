@@ -4,13 +4,15 @@ namespace Revision\Entity;
 class Section2 {
 
     private ?int $id;
+    private ?string $name;
     private ?string $profile;
     private ?string $title1;
     private ?string $title2;
     private ?string $title3;
 
-    public function __construct(int $id = null, string $profile = null, string $title1 = null, string $title2 = null, string $title3 = null) {
+    public function __construct(int $id = null, string $name = null, string $profile = null, string $title1 = null, string $title2 = null, string $title3 = null) {
         $this->id = $id;
+        $this->name = $name;
         $this->profile = $profile;
         $this->title1 = $title1;
         $this->title2 = $title2;
@@ -29,6 +31,20 @@ class Section2 {
      */
     public function setId(?int $id): void {
         $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     */
+    public function setName(?string $name): void {
+        $this->name = $name;
     }
 
     /**

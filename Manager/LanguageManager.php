@@ -10,17 +10,17 @@ class LanguageManager {
      * Return a language list.
      * @return array
      */
-    public function getLanguage(): array {
-        $users = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM language ");
+    public function getLanguages(): array {
+        $language = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM languages");
         $request->execute();
-        $users_response = $request->fetchAll();
+        $languages_response = $request->fetchAll();
 
-        if($users_response) {
-            foreach($users_response as $data) {
-                $users[] = new Language($data['id'], $data['language'], $data['pourcentage']);
+        if($languages_response) {
+            foreach($languages_response as $data) {
+                $language[] = new Language($data['id'], $data['language'], $data['pourcentage']);
             }
         }
-        return $users;
+        return $language;
     }
 }

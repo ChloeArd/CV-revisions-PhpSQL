@@ -1,14 +1,14 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/DB.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Entity/Section1.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Manager/Section1Manager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Entity/Section2.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Manager/Section2Manager.php';
 
-use Revision\Manager\Section1Manager;
+use Revision\Manager\Section2Manager;
 
 header('Content-Type: application/json');
 
 $requestType = $_SERVER['REQUEST_METHOD'];
-$manager = new Section1Manager();
+$manager = new Section2Manager();
 
 switch ($requestType) {
     case 'GET':
@@ -19,19 +19,18 @@ switch ($requestType) {
 }
 
 /**
- * Return the section1.
- * @param Section1Manager $manager
+ * Return the section2.
+ * @param Section2Manager $manager
  * @return false|string
  */
-function getSection(Section1Manager $manager): string {
+function getSection(Section2Manager $manager): string {
     $response = [];
     $data = $manager->getSection();
     foreach ($data as $section) {
         $response[] = [
             'id' => $section->getId(),
-            'image' => $section->getImage(),
             'name' => $section->getName(),
-            'text' => $section->getText(),
+            'profile' => $section->getProfile(),
             'title1' => $section->getTitle1(),
             'title2' => $section->getTitle2(),
             'title3' => $section->getTitle3()

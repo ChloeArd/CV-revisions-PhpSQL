@@ -104,7 +104,6 @@ xhr.onload = function () {
     second.prepend(createDl);
 
     for (let i = 0; i < response.length; i++) {
-        console.log(response);
         let createDt = document.createElement("dt");
         createDt.innerHTML = response[i]['title'] + " :";
         createDl.append(createDt);
@@ -124,7 +123,7 @@ xhr.onload = function () {
 xhr.send();
 
 // Ajax section1
-xhr3 = new XMLHttpRequest();
+let xhr3 = new XMLHttpRequest();
 xhr3.open("GET", "/api/section1");
 xhr3.responseType = "json";
 
@@ -141,6 +140,79 @@ xhr3.onload = function () {
     }
 }
 xhr3.send();
+
+// Ajax Section2
+let xhr4 = new XMLHttpRequest();
+xhr4.open("GET", "/api/section2");
+xhr4.responseType = "json";
+
+xhr4.onload = function () {
+    let response = xhr4.response;
+
+    for (let i = 0; i < response.length; i++) {
+        document.getElementById("name2").innerHTML = response[0]['name'];
+        document.getElementById("profile").innerHTML = response[0]['profile'];
+        document.getElementById("title4").innerHTML = response[0]['title1'];
+        document.getElementById("title5").innerHTML = response[0]['title2'];
+        document.getElementById("title6").innerHTML = response[0]['title3'];
+    }
+}
+xhr4.send();
+
+// Ajax Formations
+let xhr5 = new XMLHttpRequest();
+xhr5.open("GET", "/api/formation");
+xhr5.responseType = "json";
+
+xhr5.onload = function () {
+    let response = xhr5.response;
+
+    for (let i = 0; i < response.length; i++) {
+        document.querySelectorAll(".formation")[i].innerHTML = response[i]['endDate'] + "<br>" + response[i]['formation'];
+    }
+}
+xhr5.send();
+
+// Ajax Experiences
+let xhr6 = new XMLHttpRequest();
+xhr6.open("GET", "/api/experience");
+xhr6.responseType = "json";
+
+xhr6.onload = function () {
+    let response = xhr6.response;
+
+    if (response.length === 0) {
+        document.getElementById("aside").innerHTML = "Aucune expériences pour l'instant.";
+    }
+    else {
+        let createUl = document.createElement("ul");
+        let aside =  document.getElementById("aside");
+        aside.prepend(createUl);
+
+        for (let i = 0; i < response.length; i++) {
+            let createLi = document.createElement("li");
+            createLi.innerHTML = response[i]['startDate'] + " - " + response[i]['endDate'] + "<br>" + response[i]['experience'];
+            createUl.append(createLi);
+        }
+    }
+}
+xhr6.send();
+
+// Ajax Languages
+let xhr7 = new XMLHttpRequest();
+xhr7.open("GET", "/api/language");
+xhr7.responseType = "json";
+
+xhr7.onload = function () {
+    let response = xhr7.response;
+    console.log(response);
+    for (let i = 0; i < response.length; i++) {
+        document.querySelectorAll("th")[i].innerHTML = response[i]['language'];
+        document.querySelectorAll("td")[i].innerHTML = response[i]['pourcentage'];
+    }
+}
+xhr7.send();
+
 
 let span = document.querySelectorAll("span");
 if (span) {

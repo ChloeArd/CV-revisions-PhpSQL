@@ -11,16 +11,16 @@ class SkillManager {
      * @return array
      */
     public function getSkill(): array {
-        $users = [];
+        $skill = [];
         $request = DB::getInstance()->prepare("SELECT * FROM skill");
         $request->execute();
-        $users_response = $request->fetchAll();
+        $skill_response = $request->fetchAll();
 
-        if($users_response) {
-            foreach($users_response as $data) {
-                $users[] = new Skill($data['id'], $data['skill']);
+        if($skill_response) {
+            foreach($skill_response as $data) {
+                $skill[] = new Skill($data['id'], $data['skill']);
             }
         }
-        return $users;
+        return $skill;
     }
 }
