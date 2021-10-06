@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,23 @@
 <header>
     <a href="index.php">Mon CV</a>
     <a href="form.php">Me contacter</a>
+    <?php
+    if (isset($_SESSION['role_fk'])) {
+        if ($_SESSION['role_fk'] == 1) { ?>
+            <a href="accountSkill.php">Mon compte</a>
+        <?php
+        }
+        ?>
+        <p>Bonjour <?=$_SESSION['firstname']?></p>
+    <?php
+    }
+    else {
+    ?>
+        <a href="connection.php">Me connecter</a>
+        <a href="registration.php">M'inscrire</a>
+    <?php
+    }
+    ?>
 </header>
 
 <main>
@@ -60,14 +80,8 @@
         </nav>
         <nav>
             <h2 id="title5"></h2>
-            <ul>
-                <li class="formation">
-                </li>
-                <li class="formation">
-                </li>
-                <li class="formation">
-                </li>
-            </ul>
+            <div id="formation">
+            </div>
         </nav>
         <nav>
             <h2 id="title6"></h2>

@@ -167,8 +167,14 @@ xhr5.responseType = "json";
 xhr5.onload = function () {
     let response = xhr5.response;
 
+    let createUl = document.createElement("ul");
+    let formation =  document.getElementById("formation");
+    formation.prepend(createUl);
+
     for (let i = 0; i < response.length; i++) {
-        document.querySelectorAll(".formation")[i].innerHTML = response[i]['endDate'] + "<br>" + response[i]['formation'];
+        let createLi = document.createElement("li");
+        createLi.innerHTML = response[i]['endDate'] + "<br>" + response[i]['formation'];
+        createUl.prepend(createLi);
     }
 }
 xhr5.send();
